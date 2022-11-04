@@ -22,8 +22,6 @@ app.get('/', (req, res) => {
     const response = '<h1>Full Cycle Rocks!</h1>';
     var list = '';
     people.forEach(p => list = list + '<li>' + p + '</li>' )
-    console.log(people)
-    console.log(list)
     res.send(response + list)
 })
 

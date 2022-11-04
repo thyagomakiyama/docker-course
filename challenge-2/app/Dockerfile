@@ -1,5 +1,10 @@
 FROM node:15-alpine
 
+RUN apk update && \
+    apk add -f wget netcat && \
+    wget -q -O /usr/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/v2.2.3/wait-for && \
+    chmod +x /usr/bin/wait-for
+
 WORKDIR /usr/src/app
 
 COPY . .
@@ -7,5 +12,3 @@ COPY . .
 RUN npm install
 
 EXPOSE 3000
-
-CMD [ "node", "index.js" ]
